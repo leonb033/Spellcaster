@@ -853,35 +853,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28406236cd58a4a4fb8495f192c2f608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QnA:
+  quiz:
   - question: {fileID: 21300000, guid: 07e6cd90f41c2894a94c702f48fd7aab, type: 3}
     answers:
-    - "Schl\xFCssel"
     - Ring
-    - Kette
-    - Nadel
-    correctAnswerIndex: 1
-  - question: {fileID: 21300000, guid: f798c8fca04099842be72fe7ab93d91c, type: 3}
-    answers:
-    - Zug
-    - Keks
-    - Sack
-    - Teddy
-    correctAnswerIndex: 3
-  - question: {fileID: 21300000, guid: 8a48a8c34cb83b54f9834f01bd9c32bb, type: 3}
-    answers:
+    - "Schl\xFCssel"
     - Stift
-    - Buch
-    - Ball
-    - Kreuz
+    - Kette
+    correctAnswerIndex: 2
+  - question: {fileID: 21300000, guid: b8184dab8d6dc844e8f59d94b3c46523, type: 3}
+    answers:
+    - Banane
+    - Apfel
+    - Orange
+    - Ananas
     correctAnswerIndex: 4
+  - question: {fileID: 21300000, guid: 0aec80e3647535d4a87154ef5c6f6b80, type: 3}
+    answers:
+    - Hund
+    - Katze
+    - Hase
+    - Wolf
+    correctAnswerIndex: 1
   options:
   - {fileID: 1374106485}
   - {fileID: 1309459809}
   - {fileID: 283143379}
   - {fileID: 1760635413}
   currentQuestionIndex: 0
-  questionImage: {fileID: 1958487665}
+  questionImage: {fileID: 1958487666}
 --- !u!1 &786518918
 GameObject:
   m_ObjectHideFlags: 0
@@ -1576,7 +1576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1970,15 +1970,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 07e6cd90f41c2894a94c702f48fd7aab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.95, y: 1.98}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2143309448

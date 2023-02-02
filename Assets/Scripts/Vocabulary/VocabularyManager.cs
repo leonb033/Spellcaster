@@ -6,7 +6,15 @@ using TMPro;
 
 public class VocabularyManager : MonoBehaviour
 {
-    public List<VocabularyQnA> QnA;
+    [System.Serializable]
+    public struct Quiz
+    {
+        public Sprite question;
+        public string[] answers;
+        public int correctAnswerIndex;
+    }
+
+    public List<Quiz> quiz;
     public GameObject[] options;
     public int currentQuestionIndex;
 
@@ -19,7 +27,7 @@ public class VocabularyManager : MonoBehaviour
 
     public void CorrectAnswer()
     {
-        QnA.RemoveAt(currentQuestionIndex);
+        quiz.RemoveAt(currentQuestionIndex);
         GenerateQuestion();
     }
 
@@ -28,9 +36,9 @@ public class VocabularyManager : MonoBehaviour
         for(int i = 0; i < options.Length; i++)
         {
             options[i].GetComponent<VocabularyAnswers>().isCorrect = false;
-            options[i].transform.GetChild(0).GetComponent<TMP_Text>().text = QnA[currentQuestionIndex].answers[i];
+            options[i].transform.GetChild(0).GetComponent<TMP_Text>().text = quiz[currentQuestionIndex].answers[i];
 
-            if(QnA[currentQuestionIndex].correctAnswerIndex == i+1)
+            if(quiz[currentQuestionIndex].correctAnswerIndex == i+1)
             {
                 options[i].GetComponent<VocabularyAnswers>().isCorrect = true;
             }
@@ -39,9 +47,9 @@ public class VocabularyManager : MonoBehaviour
 
     void GenerateQuestion()
     {
-        currentQuestionIndex = Random.Range(0, QnA.Count);
+        currentQuestionIndex = Random.Range(0, quiz.Count);
 
-        questionImage = QnA[currentQuestionIndex].question;
+        questionImage = quiz[currentQuestionIndex].question;
         SetAnswers();
     }
 }
