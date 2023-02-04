@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class Interactable : MonoBehaviour
+public class Interactable : MonoBehaviour, IDropHandler
 {
     public string title;
     [TextArea(10,15)] public string description;
@@ -70,4 +71,8 @@ public class Interactable : MonoBehaviour
         print("PickUp: " + title);
     }
 
+    public void OnDrop(PointerEventData eventData)
+    {
+        Debug.Log(eventData.pointerDrag.name);
+    }
 }
