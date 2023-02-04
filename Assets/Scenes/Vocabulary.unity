@@ -994,23 +994,51 @@ MonoBehaviour:
     answers:
     - Ring
     - "Schl\xFCssel"
-    - Stift
+    - Krone
     - Kette
     correctAnswerIndex: 2
   - question: {fileID: 21300000, guid: b8184dab8d6dc844e8f59d94b3c46523, type: 3}
     answers:
-    - Banane
-    - Apfel
-    - Orange
-    - Ananas
-    correctAnswerIndex: 4
-  - question: {fileID: 21300000, guid: 0aec80e3647535d4a87154ef5c6f6b80, type: 3}
-    answers:
-    - Hund
-    - Katze
-    - Hase
-    - Wolf
+    - Baum
+    - Stein
+    - Turm
+    - Sand
     correctAnswerIndex: 1
+  - question: {fileID: 21300000, guid: 4e1fb679fc77f3f4983028a30af87a37, type: 3}
+    answers:
+    - "Schl\xFCssel"
+    - Schaufel
+    - Wald
+    - Tor
+    correctAnswerIndex: 4
+  - question: {fileID: 21300000, guid: 4a876d6085cbf634cab17bd51e3c01c4, type: 3}
+    answers:
+    - "T\xFCr"
+    - Sand
+    - Baum
+    - Stab
+    correctAnswerIndex: 2
+  - question: {fileID: 21300000, guid: 2f7c9368873d13f4e91b7de5918baf3b, type: 3}
+    answers:
+    - Stein
+    - Wald
+    - Kreuz
+    - Weg
+    correctAnswerIndex: 1
+  - question: {fileID: 21300000, guid: 6fef43aedd1ff2d44900e0dc899b16bd, type: 3}
+    answers:
+    - Friedhof
+    - Blume
+    - Stab
+    - Weg
+    correctAnswerIndex: 4
+  - question: {fileID: 21300000, guid: 8a48a8c34cb83b54f9834f01bd9c32bb, type: 3}
+    answers:
+    - "Schl\xFCssel"
+    - Kreuz
+    - Baum
+    - Grab
+    correctAnswerIndex: 2
   options:
   - {fileID: 1374106485}
   - {fileID: 1309459809}
