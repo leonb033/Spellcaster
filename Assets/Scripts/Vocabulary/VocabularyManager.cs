@@ -26,7 +26,7 @@ public class VocabularyManager : MonoBehaviour
     private int maxRound = 10;
 
     // Popup Text
-    public TMP_Text correctAnswerPopup, wrongAnswerPopup;
+    public TMP_Text correctAnswerPopup, wrongAnswerPopup, skipQuestionPopup;
     private float timeToAppear = 1f;
     private float timeToDisappear;
 
@@ -45,6 +45,11 @@ public class VocabularyManager : MonoBehaviour
         if(wrongAnswerPopup.enabled && (Time.time >= timeToDisappear))
         {
             wrongAnswerPopup.enabled = false;
+        }
+
+        if(skipQuestionPopup.enabled && (Time.time >= timeToDisappear))
+        {
+            skipQuestionPopup.enabled = false;
         }
     }
 
@@ -114,8 +119,20 @@ public class VocabularyManager : MonoBehaviour
         timeToDisappear = Time.time + timeToAppear;
     }
 
+    void PopupSkipQuestion()
+    {
+        skipQuestionPopup.enabled = true;
+        timeToDisappear = Time.time + timeToAppear;
+    }
+
     void UpdateRoundCounter()
     {
-        roundCounterText.text = roundCounter + " / "+ maxRound;
+        roundCounterText.text = roundCounter + " / " + maxRound;
+    }
+
+    public void SkipQuestion()
+    {
+        NextQuestion();
+        PopupSkipQuestion();
     }
 }
