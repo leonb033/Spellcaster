@@ -6,9 +6,10 @@ using TMPro;
 
 public class VocabularyAnswers : MonoBehaviour
 {
-    public bool isCorrect = false;
     public VocabularyManager manager;
+    public bool isCorrect = false;
     private Color startColor;
+    private float showColorForSeconds = 1f;
 
     void Start()
     {
@@ -17,16 +18,31 @@ public class VocabularyAnswers : MonoBehaviour
 
     public void Answer()
     {
+        StartCoroutine(SetAnswer());
+        manager.DisableButtons();
+    }
+
+    IEnumerator SetAnswer()
+    {
         if(isCorrect)
         {
+            manager.PopupCorrectAnswer();
             GetComponent<Image>().color = Color.green;
-            print("Correct!");
-            manager.CorrectAnswer();
         }
         else
         {
+            manager.PopupWrongAnswer();
             GetComponent<Image>().color = Color.red;
-            print("Wrong!");
         }
+
+        yield return new WaitForSeconds(showColorForSeconds);
+        ResetColor();
+        manager.CheckWinCondition();
     }
+
+    void ResetColor()
+    {
+        GetComponent<Image>().color = startColor;
+    }
+    
 }

@@ -16,22 +16,54 @@ public class VocabularyManager : MonoBehaviour
 
     public List<Quiz> quiz;
     public GameObject[] options;
-    public int currentQuestionIndex;
+    public Image questionImage;
 
-    public Sprite questionImage;
+    private int currentQuestionIndex;
+
+    // Round Counter
+    public TMP_Text roundCounterText;
+    private int roundCounter = 0;
+    private int maxRound = 10;
+
+    // Popup Text
+    public TMP_Text correctAnswerPopup, wrongAnswerPopup;
+    private float timeToAppear = 1f;
+    private float timeToDisappear;
 
     void Start()
     {
         GenerateQuestion();
     }
 
-    public void CorrectAnswer()
+    void Update()
+    {
+        if(correctAnswerPopup.enabled && (Time.time >= timeToDisappear))
+        {
+            correctAnswerPopup.enabled = false;
+        }
+
+        if(wrongAnswerPopup.enabled && (Time.time >= timeToDisappear))
+        {
+            wrongAnswerPopup.enabled = false;
+        }
+    }
+
+    public void CheckWinCondition()
+    {
+        if(roundCounter < maxRound)
+        {
+            NextQuestion();
+        }
+    }
+
+    void NextQuestion()
     {
         quiz.RemoveAt(currentQuestionIndex);
         GenerateQuestion();
+        EnableButtons();
     }
 
-    void SetAnswers()
+    void GenerateAnswers()
     {
         for(int i = 0; i < options.Length; i++)
         {
@@ -47,9 +79,43 @@ public class VocabularyManager : MonoBehaviour
 
     void GenerateQuestion()
     {
+        roundCounter++;
+        UpdateRoundCounter();
         currentQuestionIndex = Random.Range(0, quiz.Count);
+        questionImage.sprite = quiz[currentQuestionIndex].question;
+        GenerateAnswers();
+    }
 
-        questionImage = quiz[currentQuestionIndex].question;
-        SetAnswers();
+    void EnableButtons()
+    {
+        for (int i = 0; i < options.Length; i++)
+        {
+            options[i].transform.GetComponent<Button>().enabled = true;            
+        }        
+    }
+
+    public void DisableButtons()
+    {
+        for (int i = 0; i < options.Length; i++)
+        {
+            options[i].transform.GetComponent<Button>().enabled = false;            
+        }
+    }
+
+    public void PopupCorrectAnswer()
+    {
+        correctAnswerPopup.enabled = true;
+        timeToDisappear = Time.time + timeToAppear;
+    }
+
+    public void PopupWrongAnswer()
+    {
+        wrongAnswerPopup.enabled = true;
+        timeToDisappear = Time.time + timeToAppear;
+    }
+
+    void UpdateRoundCounter()
+    {
+        roundCounterText.text = roundCounter + " / "+ maxRound;
     }
 }
