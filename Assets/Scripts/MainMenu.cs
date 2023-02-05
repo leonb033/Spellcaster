@@ -8,12 +8,12 @@ public class MainMenu : MonoBehaviour
 {
     public void NewGame()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Vocabulary");
     }
 
     public void ContinueGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);           // Load the next scene in the q
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);           // Load the next scene in the q
     }
 
     public void QuitGame()

@@ -417,9 +417,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 710011354}
-        m_TargetAssemblyTypeName: VocabularyMenu, Assembly-CSharp
-        m_MethodName: Lection1
+      - m_Target: {fileID: 710011352}
+        m_TargetAssemblyTypeName: VocabularyResults, Assembly-CSharp
+        m_MethodName: CheckForNextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

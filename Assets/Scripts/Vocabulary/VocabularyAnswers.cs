@@ -26,12 +26,14 @@ public class VocabularyAnswers : MonoBehaviour
     {
         if(isCorrect)
         {
+            print(manager.correctAnswerCount);
             manager.correctAnswerCount++;
             manager.PopupCorrectAnswer();
             GetComponent<Image>().color = Color.green;
         }
         else
         {
+            print(manager.wrongAnswerCount);
             manager.wrongAnswerCount++;
             manager.PopupWrongAnswer();
             GetComponent<Image>().color = Color.red;

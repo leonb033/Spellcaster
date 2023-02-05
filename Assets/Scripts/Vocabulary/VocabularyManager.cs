@@ -27,9 +27,9 @@ public class VocabularyManager : MonoBehaviour
     public TMP_Text roundCounterText;
     private int roundCounter = 0;
     private int maxRound = 10;
-    public int skipQuestionCount = 0;
-    public int correctAnswerCount = 0;
-    public int wrongAnswerCount = 0;
+    public int skipQuestionCount = 1;
+    public int correctAnswerCount = 1;
+    public int wrongAnswerCount = 1;
 
     // Popup Text
     public TMP_Text correctAnswerPopup, wrongAnswerPopup, skipQuestionPopup;
@@ -160,6 +160,7 @@ public class VocabularyManager : MonoBehaviour
 
     public void SkipQuestion()
     {
+        print(skipQuestionCount);
         skipQuestionCount++;
         StartCoroutine(SkipQuestionDelay());
         NextQuestion();

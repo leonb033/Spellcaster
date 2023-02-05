@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class VocabularyResults : MonoBehaviour
 {
@@ -44,6 +45,18 @@ public class VocabularyResults : MonoBehaviour
         correctAnswers.text = "Correct Answers: " + manager.correctAnswerCount;
         wrongAnswers.text = "Wrong Answers: " + manager.wrongAnswerCount;
         skippedAnswers.text = "Skipped Answers: " + manager.skipQuestionCount;
+    }
+
+    public void CheckForNextScene()
+    {
+        if(manager.correctAnswerCount >= 8)
+        {
+            SceneManager.LoadScene("Game");
+        }
+        else
+        {
+            SceneManager.LoadScene("Vocabulary");
+        }
     }
 
 }
