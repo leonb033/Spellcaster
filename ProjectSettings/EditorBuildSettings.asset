@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Vocabulary.unity
     guid: b32680194657ef448bb2d506df249d68
+  - enabled: 1
+    path: Assets/Scenes/VocabularyResults.unity
+    guid: 8fe5a45884418754eaab196312b69f74
   m_configObjects: {}

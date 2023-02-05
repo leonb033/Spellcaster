@@ -14,5 +14,6 @@ public class VocabularyMenu : MonoBehaviour
     public void Lection1()
     {
         SceneManager.LoadScene("Vocabulary");
+        // with gameobject Lection1 enabled, other disabled
     }
 }

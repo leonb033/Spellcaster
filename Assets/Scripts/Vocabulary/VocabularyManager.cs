@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class VocabularyManager : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class VocabularyManager : MonoBehaviour
     public List<Quiz> quiz;
     public GameObject[] options;
     public Image questionImage;
+    public Button skipButton;
+    public Button exitButton;
 
     private int currentQuestionIndex;
 
@@ -24,6 +27,9 @@ public class VocabularyManager : MonoBehaviour
     public TMP_Text roundCounterText;
     private int roundCounter = 0;
     private int maxRound = 10;
+    public int skipQuestionCount = 0;
+    public int correctAnswerCount = 0;
+    public int wrongAnswerCount = 0;
 
     // Popup Text
     public TMP_Text correctAnswerPopup, wrongAnswerPopup, skipQuestionPopup;
@@ -32,25 +38,36 @@ public class VocabularyManager : MonoBehaviour
 
     void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
         GenerateQuestion();
     }
 
     void Update()
     {
-        if(correctAnswerPopup.enabled && (Time.time >= timeToDisappear))
-        {
-            correctAnswerPopup.enabled = false;
+        try {
+            if(correctAnswerPopup.enabled && (Time.time >= timeToDisappear))   
+            {
+                correctAnswerPopup.enabled = false;
+            }
         }
+        catch{}
 
-        if(wrongAnswerPopup.enabled && (Time.time >= timeToDisappear))
-        {
-            wrongAnswerPopup.enabled = false;
+        try {
+            if(wrongAnswerPopup.enabled && (Time.time >= timeToDisappear))
+            {
+                wrongAnswerPopup.enabled = false;
+            }
         }
+        catch{}
 
-        if(skipQuestionPopup.enabled && (Time.time >= timeToDisappear))
-        {
-            skipQuestionPopup.enabled = false;
+        try{
+            if(skipQuestionPopup.enabled && (Time.time >= timeToDisappear))
+            {
+                skipQuestionPopup.enabled = false;
+            }
         }
+        catch{}
+
     }
 
     public void CheckWinCondition()
@@ -58,6 +75,10 @@ public class VocabularyManager : MonoBehaviour
         if(roundCounter < maxRound)
         {
             NextQuestion();
+        }
+        else if(roundCounter == maxRound)
+        {
+            SceneManager.LoadScene("VocabularyResults");
         }
     }
 
@@ -96,7 +117,10 @@ public class VocabularyManager : MonoBehaviour
         for (int i = 0; i < options.Length; i++)
         {
             options[i].transform.GetComponent<Button>().enabled = true;            
-        }        
+        }
+
+        skipButton.enabled = true;
+        exitButton.enabled = true; 
     }
 
     public void DisableButtons()
@@ -105,6 +129,9 @@ public class VocabularyManager : MonoBehaviour
         {
             options[i].transform.GetComponent<Button>().enabled = false;            
         }
+
+        skipButton.enabled = false;
+        exitButton.enabled = false;
     }
 
     public void PopupCorrectAnswer()
@@ -123,6 +150,7 @@ public class VocabularyManager : MonoBehaviour
     {
         skipQuestionPopup.enabled = true;
         timeToDisappear = Time.time + timeToAppear;
+        DisableButtons();
     }
 
     void UpdateRoundCounter()
@@ -132,7 +160,15 @@ public class VocabularyManager : MonoBehaviour
 
     public void SkipQuestion()
     {
+        skipQuestionCount++;
+        StartCoroutine(SkipQuestionDelay());
         NextQuestion();
         PopupSkipQuestion();
+    }
+
+    IEnumerator SkipQuestionDelay()
+    {
+        yield return new WaitForSeconds(1f);
+        EnableButtons();
     }
 }
