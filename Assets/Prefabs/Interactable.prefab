@@ -55,46 +55,22 @@ MonoBehaviour:
   title: Interactable
   description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Purus sit amet volutpat consequat
-    mauris nunc congue nisi vitae. Viverra nam libero justo laoreet sit amet cursus.
-    Pharetra vel turpis nunc eget lorem. Commodo odio aenean sed adipiscing. Sem
-    fringilla ut morbi tincidunt augue interdum velit euismod in. Magna fringilla
-    urna porttitor rhoncus. Volutpat ac tincidunt vitae semper quis lectus nulla
-    at volutpat. Sem fringilla ut morbi tincidunt augue interdum. Feugiat pretium
-    nibh ipsum consequat nisl. Ornare arcu dui vivamus arcu felis bibendum ut. Est
-    ante in nibh mauris. Eget mauris pharetra et ultrices neque ornare. Sollicitudin
-    tempor id eu nisl. Dignissim suspendisse in est ante. Ornare lectus sit amet
-    est placerat in egestas erat. Convallis tellus id interdum velit.
+    mauris nunc congue nisi vitae.Ornare arcu dui vivamus arcu felis bibendum ut.
+    Est ante in nibh mauris.
 
-    
 
-    Quam
-    nulla porttitor massa id neque aliquam vestibulum. Ac ut consequat semper viverra
-    nam libero justo laoreet sit. Amet massa vitae tortor condimentum lacinia quis
-    vel. Feugiat pretium nibh ipsum consequat nisl. Elit at imperdiet dui accumsan
-    sit. Pellentesque habitant morbi tristique senectus et netus et malesuada. Posuere
-    ac ut consequat semper viverra nam libero. Est velit egestas dui id ornare. Mauris
-    cursus mattis molestie a iaculis at. Arcu odio ut sem nulla pharetra diam.
-
-    
-
-    Pulvinar
-    etiam non quam lacus suspendisse faucibus interdum posuere. Nullam eget felis
-    eget nunc lobortis. Consectetur adipiscing elit pellentesque habitant morbi tristique
-    senectus. Pretium vulputate sapien nec sagittis aliquam malesuada bibendum arcu
-    vitae. Quis enim lobortis scelerisque fermentum dui faucibus. Molestie ac feugiat
-    sed lectus vestibulum. Elit at imperdiet dui accumsan sit amet nulla facilisi.
-    Purus sit amet luctus venenatis lectus. Quis vel eros donec ac. Aliquam malesuada
-    bibendum arcu vitae elementum curabitur vitae. Quis lectus nulla at volutpat.
-    Ut aliquam purus sit amet luctus venenatis. Diam quis enim lobortis scelerisque
-    fermentum dui faucibus. Neque aliquam vestibulum morbi blandit cursus. In nisl
-    nisi scelerisque eu ultrices. Quis auctor elit sed vulputate. Consectetur lorem
-    donec massa sapien. Dui vivamus arcu felis bibendum ut tristique et egestas quis.
-    Maecenas accumsan lacus vel facilisis volutpat est velit egestas. Ornare suspendisse
-    sed nisi lacus sed viverra tellus in.'
+    Lorem ipsum dolor sit amet, consectetur adipiscing
+    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Purus
+    sit amet volutpat consequat mauris nunc congue nisi vitae.Ornare arcu dui vivamus
+    arcu felis bibendum ut. Est ante in nibh mauris.'
   image: {fileID: 0}
+  answers: []
   can_inspect: 0
   can_use: 0
   can_pickup: 0
+  can_enchant: 0
+  vocabulary_done: 0
+  item_prefab: {fileID: 8525956915118741869, guid: c4d2c9b8f2e28ce439637043accc0063, type: 3}
 --- !u!222 &8500514997619266653
 CanvasRenderer:
   m_ObjectHideFlags: 0

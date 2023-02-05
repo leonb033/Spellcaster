@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Item : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class Item : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     RectTransform rectTransform;
     Transform parent;
@@ -40,10 +40,5 @@ public class Item : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndD
         transform.SetSiblingIndex(siblingIndex);
         canvasGoup.alpha = 1.0f;
         canvasGoup.blocksRaycasts = true;
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        
     }
 }
