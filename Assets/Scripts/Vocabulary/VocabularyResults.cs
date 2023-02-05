@@ -51,7 +51,7 @@ public class VocabularyResults : MonoBehaviour
     {
         if(manager.correctAnswerCount >= 8)
         {
-            SceneManager.LoadScene("Game");
+            SceneManager.LoadScene("Level2");
         }
         else
         {

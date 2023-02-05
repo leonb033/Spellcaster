@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
 {
     public void NewGame()
     {
-        SceneManager.LoadScene("Vocabulary");
+        SceneManager.LoadScene("Game");
     }
 
     public void ContinueGame()
