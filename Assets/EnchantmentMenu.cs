@@ -5,12 +5,11 @@ using UnityEngine;
 public class EnchantmentMenu : MonoBehaviour
 {
     GameObject key;
-    InteractionMenu interaction_menu;
+    public InteractionMenu interaction_menu;
     
     void Start()
     {
         key = GameObject.Find("/Canvas/Environment/Interactables/Key");
-        interaction_menu = GameObject.Find("/Canvas/InteractionMenu").GetComponent<InteractionMenu>();
         Close();
     }
 
