@@ -4,13 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Interactable : MonoBehaviour, IDropHandler
+public abstract class Interactable : MonoBehaviour, IDropHandler
 {
     public string title;
     [TextArea(10,15)] public string description;
-    public Sprite image;
-    public string[] answers;
-    
+
     public bool can_inspect;
     public bool can_use;
     public bool can_pickup;
@@ -18,35 +16,41 @@ public class Interactable : MonoBehaviour, IDropHandler
 
     public bool vocabulary_done = false;
 
-    public GameObject item_prefab;
+    protected Transform interactables;
+    protected Button button;
+    protected Inventory inventory;
+    protected Transform inventory_items;
+    protected InteractionMenu interaction_menu;
+    protected VocabularyTest vocabulary_test;
+    protected EnchantmentMenu enchantment_menu;
 
-    private Button button;
-    private Transform inventory_items;
-    private InteractionMenu interaction_menu;
-    private VocabularyTest vocabulary_test;
-
-    private EnchantmentMenu enchantment_menu;
+    AudioSource audio_source;
+    AudioClip select_sound;
+    AudioClip combine_sound;
 
     void Awake()
     {
+        // Add box collider
+        gameObject.AddComponent<BoxCollider2D>();
         // Create button & set action
         button = gameObject.AddComponent<Button>();
         button.onClick.AddListener(() => Select());
 
         // Find gameobjects & components
-        inventory_items =   GameObject.Find("/Canvas/Inventory/View/Items").transform;
-        interaction_menu =  GameObject.Find("/Canvas/InteractionMenu").GetComponent<InteractionMenu>();
-        vocabulary_test =   GameObject.Find("/Canvas/VocabularyTest").GetComponent<VocabularyTest>();
+        interactables =     GameObject.Find("/Canvas/Environment/Interactables").transform;
+        inventory =         GameObject.Find("/Canvas/GUI/Menus/Inventory").GetComponent<Inventory>();
+        inventory_items =   GameObject.Find("/Canvas/GUI/Menus/Inventory/View/Items").transform;
+        interaction_menu =  GameObject.Find("/Canvas/GUI/Menus/InteractionMenu").GetComponent<InteractionMenu>();
+        vocabulary_test =   GameObject.Find("/Canvas/GUI/Menus/VocabularyTest").GetComponent<VocabularyTest>();
+        enchantment_menu =  GameObject.Find("/Canvas/GUI/Menus/EnchantmentMenu").GetComponent<EnchantmentMenu>();
+        audio_source =      GameObject.Find("/Manager/AudioSource").GetComponent<AudioSource>();
 
-        enchantment_menu = GameObject.Find("/Canvas/EnchantmentMenu").GetComponent<EnchantmentMenu>();
+        // Load sounds
+        select_sound = Resources.Load("Sounds/Select", typeof(AudioClip)) as AudioClip;
+        combine_sound = Resources.Load("Sounds/Combine", typeof(AudioClip)) as AudioClip;
 
         // Update collider size to fit image
         UpdateCollider();
-    }
-
-    void OnValidate()
-    {
-        GetComponent<Image>().sprite = image;
     }
 
     void UpdateCollider()
@@ -56,54 +60,63 @@ public class Interactable : MonoBehaviour, IDropHandler
         collider.size = new Vector2(rect_transform.rect.width, rect_transform.rect.height);
     }
 
-    void ShowMenu()
-    {
-        // Display menu
-        interaction_menu.Open();
-    }
-
     void Select()
     {
+        // Play sound
+        audio_source.PlayOneShot(select_sound);
+        
         // Update menu
-        interaction_menu.UpdateMenu(this);
+        UpdateMenu();
+
+        // Open vocabulary test if not answered already
         if (vocabulary_done) {
-            ShowMenu();
+            interaction_menu.Open();
         }
         else {
-            if (!vocabulary_test.isActiveAndEnabled) {
-                vocabulary_test.Test(this);
-            }
+            vocabulary_test.Test(this);
         }
     }
 
-    public void Inspect()
+    public Sprite GetImage()
     {
-        print("Inspect: " + title);
-        can_inspect = false;
+        return gameObject.GetComponent<Image>().sprite;
+    }
+
+    public void SetImage(Sprite image)
+    {
+        gameObject.GetComponent<Image>().sprite = image;
+    }
+
+    public void UpdateMenu()
+    {
         interaction_menu.UpdateMenu(this);
     }
-
-    public void Use()
+    
+    public void OpenInEnchantmentMenu()
     {
-        print("Use: " + title);
-    }
-
-    public void PickUp()
-    {
-        print("PickUp: " + title);
-        GameObject item = Instantiate(item_prefab, inventory_items);
-        item.GetComponent<Image>().sprite = image;
-        Destroy(gameObject);
-    }
-
-    public void Enchant()
-    {
-        enchantment_menu.Open();
-        print("Enchant: " + title);
+        enchantment_menu.Open(this);
     }
 
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log(eventData.pointerDrag.name);
+        Combine(eventData.pointerDrag.GetComponent<Item>());
+        // Play sound
+        audio_source.PlayOneShot(combine_sound);
     }
+
+    public void PickUp()
+    {
+        inventory.AddItem(this);
+        can_pickup = false;
+        interaction_menu.UpdateMenu(this);
+        Destroy(gameObject);
+    }
+
+    public virtual void Inspect() {}
+
+    public virtual void Use() {}
+
+    public virtual void Combine(Item item) {}
+
+    public virtual void Enchant(string spell) {}
 }

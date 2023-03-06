@@ -1,35 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
-public class EnchantmentMenu : MonoBehaviour
+public class EnchantmentMenu : Window
 {
-    GameObject key;
-    public InteractionMenu interaction_menu;
     
-    void Start()
+    public Sprite button_image;
+    
+    Interactable target;
+    TMP_Text title;
+    Image image;
+    Transform buttons;
+    MagicBook magic_book;
+    Object button_prefab;
+    
+    void Awake()
     {
-        key = GameObject.Find("/Canvas/Environment/Interactables/Key");
-        Close();
+        title =         GameObject.Find("/Canvas/GUI/Menus/EnchantmentMenu/Left/Title").GetComponent<TMP_Text>();
+        image =         GameObject.Find("/Canvas/GUI/Menus/EnchantmentMenu/Left/Image").GetComponent<Image>();
+        buttons =       GameObject.Find("/Canvas/GUI/Menus/EnchantmentMenu/Buttons").transform;
+        magic_book =    GameObject.Find("/Canvas/GUI/Menus/MagicBook").GetComponent<MagicBook>();
+        button_prefab = Resources.Load("Prefabs/GUI/Button");
     }
 
-    public void Open()
+    public void Open(Interactable interactable)
     {
-        gameObject.SetActive(true);
-    }
+        // Set target
+        target = interactable;
+        // Update display
+        title.text = target.title;
+        image.sprite = target.GetImage();
+        // Delete old spell buttons
+        foreach(Transform child in buttons) {
+            Destroy(child.gameObject);
+        }
+        // Create spell buttons
+        foreach(Word verb in magic_book.verbs) {
+            GameObject obj = Instantiate(button_prefab, buttons) as GameObject;
+            obj.name = verb.english;
 
-    public void Close()
-    {
-        gameObject.SetActive(false);
-    }
+            TMP_Text text = obj.transform.GetChild(0).GetComponent<TMP_Text>();
+            text.text = verb.german;
 
-    public void Enchant()
-    {
-        print("test");
-        key.GetComponent<RectTransform>().sizeDelta = new Vector2(100.0f, 100.0f);
-        key.GetComponent<Interactable>().can_enchant = false;
-        key.GetComponent<Interactable>().can_pickup = true;
-        interaction_menu.UpdateMenu(key.GetComponent<Interactable>());
-        Close();
+            Button button = obj.GetComponent<Button>();
+            button.onClick.AddListener(() => {
+                target.Enchant(verb.english);
+            });
+        }
+        
+        // Open window
+        Open();
     }
+    
+    override protected void Init() {}
 }

@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class Item : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
+    public Interactable interactable;
     RectTransform rectTransform;
     Transform parent;
     GameObject canvas;
