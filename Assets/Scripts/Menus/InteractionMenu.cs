@@ -28,8 +28,6 @@ public class InteractionMenu : Window
 
     public void UpdateMenu(Interactable interactable)
     {
-        print("UpdateMenu");
-        print(interactable);
         // Update menu fields
         text_name.text = interactable.title;
         image_info.sprite = interactable.GetImage();

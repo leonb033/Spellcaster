@@ -13,7 +13,6 @@ public class Key : Interactable
     
     public override void Combine(Item item)
     {
-        print(rect.localScale);
         switch(item.interactable.title) 
         {
             case "Stock":

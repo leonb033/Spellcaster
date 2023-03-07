@@ -8,6 +8,13 @@ public class House : Interactable
 {
     public Sprite image_open;
 
+    Manager manager;
+
+    void Start()
+    {
+        manager = GameObject.Find("/Manager").GetComponent<Manager>();
+    }
+
     public void Open()
     {
         GetComponent<Image>().sprite = image_open;
@@ -16,6 +23,6 @@ public class House : Interactable
 
     public override void Use()
     {
-        SceneManager.LoadScene("Level_2", LoadSceneMode.Single);
+        manager.LoadNextScene();
     }
 }

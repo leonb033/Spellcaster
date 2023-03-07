@@ -42,7 +42,7 @@ public class MagicBook : Window
     {
         Reset();
         // Add nouns
-        foreach (var word in vocabulary.nouns[manager.GetSceneName()])
+        foreach (var word in vocabulary.Get(manager.GetSceneName()))
         {
             // left
             GameObject german = new GameObject();
@@ -95,7 +95,6 @@ public class MagicBook : Window
 
     public void AddVerb(Word verb)
     {
-        print(verbs);
         verbs.Add(verb);
         messages.MagicBookMessage();
     }

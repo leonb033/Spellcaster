@@ -43,12 +43,12 @@ public class VocabularyTest : Window
         // Incorrect answers
         List<string> incorrect = new List<string>();
         // Select random answers from vocabulary
-        var nouns = vocabulary.nouns[manager.GetSceneName()];
+        var words = vocabulary.Get(manager.GetSceneName());
         for (int i = 0; i < answers_total-1; i++)
         {
             string word;
             do {
-                word = nouns[Random.Range(0, nouns.Length)].german;
+                word = words[Random.Range(0, words.Count)].german;
             }
             while ((incorrect.Contains(word)) || (word == interactable.title));
             incorrect.Add(word);
