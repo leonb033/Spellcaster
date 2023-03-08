@@ -79,7 +79,7 @@ public class Vocabulary : MonoBehaviour
             new Word("Stone",       "Stein"),
         }));
         // Level 3
-        levels.Add(new Level("Level_2", new List<Word>() {
+        levels.Add(new Level("Level_3", new List<Word>() {
             new Word("Key",         "Schlüssel"),
             new Word("Gate",        "Tor"),
             new Word("Sand",        "Sand"),
