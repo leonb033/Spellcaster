@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class VocabularyResults : MonoBehaviour
 {
-    public VocabularyManager manager;
+    
+    Manager manager;
+    VocabularyManager voc_manager;
 
     private TMP_Text correctAnswers;
     private TMP_Text wrongAnswers;
@@ -17,7 +19,8 @@ public class VocabularyResults : MonoBehaviour
 
     void Start()
     {
-        manager = GameObject.Find("Vocabulary Manager").GetComponent<VocabularyManager>();
+        manager = GameObject.Find("/Manager").GetComponent<Manager>();
+        voc_manager = GameObject.Find("Vocabulary Manager").GetComponent<VocabularyManager>();
         correctAnswers = GameObject.Find("Canvas/Text Panel Background/Text Panel/Correct Answers").GetComponent<TMP_Text>();
         wrongAnswers = GameObject.Find("Canvas/Text Panel Background/Text Panel/Wrong Answers").GetComponent<TMP_Text>();
         skippedAnswers = GameObject.Find("Canvas/Text Panel Background/Text Panel/Skipped Answers").GetComponent<TMP_Text>();
@@ -30,7 +33,7 @@ public class VocabularyResults : MonoBehaviour
 
     void CheckResults()
     {
-        if(manager.correctAnswerCount >= 8)
+        if(voc_manager.correctAnswerCount >= 8)
         {
             endResultWon.text = "Congratulations! You did it!";
         }
@@ -42,20 +45,20 @@ public class VocabularyResults : MonoBehaviour
 
     void ShowText()
     {
-        correctAnswers.text = "Correct Answers: " + manager.correctAnswerCount;
-        wrongAnswers.text = "Wrong Answers: " + manager.wrongAnswerCount;
-        skippedAnswers.text = "Skipped Answers: " + manager.skipQuestionCount;
+        correctAnswers.text = "Correct Answers: " + voc_manager.correctAnswerCount;
+        wrongAnswers.text = "Wrong Answers: " + voc_manager.wrongAnswerCount;
+        skippedAnswers.text = "Skipped Answers: " + voc_manager.skipQuestionCount;
     }
 
     public void CheckForNextScene()
     {
-        if(manager.correctAnswerCount >= 8)
+        if(voc_manager.correctAnswerCount >= 8)
         {
-            SceneManager.LoadScene("Level2");
+            manager.LoadScene("Level_2");
         }
         else
         {
-            SceneManager.LoadScene("Vocabulary");
+            manager.LoadScene("Vocabulary");
         }
     }
 
