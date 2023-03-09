@@ -8054,6 +8054,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6494087022944761658, guid: 6207d3969375ea7499d7151536369219, type: 3}
+      propertyPath: m_text
+      value: Dark... I am afraid... can you somehow make light?
+      objectReference: {fileID: 0}
     - target: {fileID: 7010460521643230372, guid: 6207d3969375ea7499d7151536369219, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
