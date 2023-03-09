@@ -54,8 +54,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84b16b57563fe74489f02facba5a7792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sound_open: {fileID: 0}
-  sound_close: {fileID: 0}
+  sound_open: {fileID: 8300000, guid: d7f2d8e864f2d874ab0aacde25db7b5f, type: 3}
+  sound_close: {fileID: 8300000, guid: 051b40d290162474baa92d636a0cd52f, type: 3}
   item_sound: {fileID: 0}
 --- !u!222 &5435546518787258960
 CanvasRenderer:

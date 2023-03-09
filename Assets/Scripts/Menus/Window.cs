@@ -7,11 +7,11 @@ public abstract class Window : MonoBehaviour
     public AudioClip sound_open;
     public AudioClip sound_close;
 
-    protected AudioSource audio_source;
+    protected AudioManager audio_manager;
     
     void Start()
     {
-        audio_source = GameObject.Find("/Manager/AudioSource").GetComponent<AudioSource>();
+        audio_manager = GameObject.Find("/Manager").GetComponent<AudioManager>();
         Init();
         Close();
     }
@@ -29,7 +29,7 @@ public abstract class Window : MonoBehaviour
         gameObject.SetActive(true);
         // Play sound
         if (sound_open) {
-            audio_source.PlayOneShot(sound_open);
+            audio_manager.Play(sound_open);
         }
     }
     
@@ -37,7 +37,7 @@ public abstract class Window : MonoBehaviour
     {
         // Play sound
         if (sound_close && (Time.time > 1.0)) {
-            audio_source.PlayOneShot(sound_close);
+            audio_manager.Play(sound_close);
         }
         // Disable window
         gameObject.SetActive(false);

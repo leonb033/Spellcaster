@@ -50,7 +50,7 @@ public class Inventory : Window
 
         // Play sound
         if (!mute) {
-            audio_source.PlayOneShot(item_sound);
+            audio_manager.Play(item_sound);
         }
     }
 

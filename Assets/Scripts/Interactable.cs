@@ -24,7 +24,7 @@ public abstract class Interactable : MonoBehaviour, IDropHandler
     protected VocabularyTest vocabulary_test;
     protected EnchantmentMenu enchantment_menu;
 
-    AudioSource audio_source;
+    AudioManager audio_manager;
     AudioClip select_sound;
     AudioClip combine_sound;
 
@@ -43,7 +43,7 @@ public abstract class Interactable : MonoBehaviour, IDropHandler
         interaction_menu =  GameObject.Find("/Canvas/GUI/Menus/InteractionMenu").GetComponent<InteractionMenu>();
         vocabulary_test =   GameObject.Find("/Canvas/GUI/Menus/VocabularyTest").GetComponent<VocabularyTest>();
         enchantment_menu =  GameObject.Find("/Canvas/GUI/Menus/EnchantmentMenu").GetComponent<EnchantmentMenu>();
-        audio_source =      GameObject.Find("/Manager/AudioSource").GetComponent<AudioSource>();
+        audio_manager =     GameObject.Find("/Manager").GetComponent<AudioManager>();
 
         // Load sounds
         select_sound = Resources.Load("Sounds/Select", typeof(AudioClip)) as AudioClip;
@@ -63,7 +63,7 @@ public abstract class Interactable : MonoBehaviour, IDropHandler
     void Select()
     {
         // Play sound
-        audio_source.PlayOneShot(select_sound);
+        audio_manager.Play(select_sound);
         
         // Update menu
         UpdateMenu();
@@ -101,7 +101,7 @@ public abstract class Interactable : MonoBehaviour, IDropHandler
     {
         Combine(eventData.pointerDrag.GetComponent<Item>());
         // Play sound
-        audio_source.PlayOneShot(combine_sound);
+        audio_manager.Play(combine_sound);
     }
 
     public void PickUp()
