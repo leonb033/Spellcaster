@@ -15,7 +15,6 @@ public class MainMenu : MonoBehaviour
         if (manager.GetLevelId() > 1) {
             continue_button.interactable = true;
         }
-        print(manager.GetLevelId());
     }
     
     public void NewGame()

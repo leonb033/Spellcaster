@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -9,6 +10,19 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         audio_source = GameObject.Find("/Manager/AudioSource").GetComponent<AudioSource>();
+        SceneManager.sceneLoaded += OnSceneChange;
+    }
+
+    void OnSceneChange(Scene scene, LoadSceneMode sceneMode)
+    {
+        StartCoroutine(Unmute());
+    }
+
+    IEnumerator Unmute()
+    {
+        audio_source.mute = true;
+        yield return new WaitForSeconds(1.5f);
+        audio_source.mute = false;
     }
 
     public void Play(AudioClip clip, float volume = 1.0f)

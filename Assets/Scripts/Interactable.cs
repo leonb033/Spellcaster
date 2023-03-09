@@ -24,9 +24,9 @@ public abstract class Interactable : MonoBehaviour, IDropHandler
     protected VocabularyTest vocabulary_test;
     protected EnchantmentMenu enchantment_menu;
 
-    AudioManager audio_manager;
-    AudioClip select_sound;
-    AudioClip combine_sound;
+    protected AudioManager audio_manager;
+    protected AudioClip select_sound;
+    protected AudioClip combine_failed_sound;
 
     void Awake()
     {
@@ -46,8 +46,8 @@ public abstract class Interactable : MonoBehaviour, IDropHandler
         audio_manager =     GameObject.Find("/Manager").GetComponent<AudioManager>();
 
         // Load sounds
-        select_sound = Resources.Load("Sounds/Select", typeof(AudioClip)) as AudioClip;
-        combine_sound = Resources.Load("Sounds/Combine", typeof(AudioClip)) as AudioClip;
+        select_sound = Resources.Load("Sounds/Interactables/select", typeof(AudioClip)) as AudioClip;
+        combine_failed_sound = Resources.Load("Sounds/UI/error", typeof(AudioClip)) as AudioClip;
 
         // Update collider size to fit image
         UpdateCollider();
@@ -100,8 +100,6 @@ public abstract class Interactable : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         Combine(eventData.pointerDrag.GetComponent<Item>());
-        // Play sound
-        audio_manager.Play(combine_sound);
     }
 
     public void PickUp()

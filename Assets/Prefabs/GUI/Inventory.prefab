@@ -56,7 +56,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sound_open: {fileID: 8300000, guid: d7f2d8e864f2d874ab0aacde25db7b5f, type: 3}
   sound_close: {fileID: 8300000, guid: 051b40d290162474baa92d636a0cd52f, type: 3}
-  item_sound: {fileID: 0}
+  item_sound: {fileID: 8300000, guid: 46527ba450a7801408e4f2620f8c1cb3, type: 3}
 --- !u!222 &5435546518787258960
 CanvasRenderer:
   m_ObjectHideFlags: 0
