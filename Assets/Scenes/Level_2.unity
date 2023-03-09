@@ -844,7 +844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Sternenkarte T
-  description: 
+  description: Map of the night sky.
   can_inspect: 0
   can_use: 0
   can_pickup: 1
@@ -1721,7 +1721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Tisch
-  description: 
+  description: Antique writing desk.
   can_inspect: 0
   can_use: 1
   can_pickup: 0
@@ -1896,7 +1896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: "T\xFCr"
-  description: 
+  description: Heavy door made of iron.
   can_inspect: 0
   can_use: 0
   can_pickup: 0
@@ -2925,7 +2925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Brenner
-  description: 
+  description: Burner for heating substances.
   can_inspect: 0
   can_use: 1
   can_pickup: 0

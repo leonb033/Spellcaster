@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Sternenkarte O
-  description: 
+  description: Map of the night sky.
   can_inspect: 0
   can_use: 0
   can_pickup: 1
