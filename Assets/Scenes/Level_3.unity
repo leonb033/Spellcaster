@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Tuch
-  description: 
+  description: Shroud of a deceased man.
   can_inspect: 0
   can_use: 0
   can_pickup: 0
@@ -556,7 +556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Fackel
-  description: 
+  description: Extinguished torch.
   can_inspect: 0
   can_use: 0
   can_pickup: 0
@@ -2277,7 +2277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Runen
-  description: 
+  description: Mysterious runes from an ancient civilisation.
   can_inspect: 1
   can_use: 0
   can_pickup: 0
@@ -7320,7 +7320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Fackel Halterung
-  description: 
+  description: Empty holder for a torch.
   can_inspect: 0
   can_use: 0
   can_pickup: 0
