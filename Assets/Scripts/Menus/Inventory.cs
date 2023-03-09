@@ -7,18 +7,26 @@ public class Inventory : Window
 {
     public AudioClip item_sound;
     
+    Manager manager;
     Transform items;
     float inventory_height;
     Messages messages;
 
+
     void Awake()
     {
+        manager = GameObject.Find("/Manager").GetComponent<Manager>();
         items = transform.Find("View/Items");
         messages = GameObject.Find("/Canvas/GUI/Messages").GetComponent<Messages>();
         inventory_height = items.GetComponent<RectTransform>().sizeDelta.y;
+        // Load items
+        if (manager.GetSceneName() == "Level_2") {
+            GameObject sand = Resources.Load("Prefabs/Level_2/Sand") as GameObject;
+            AddItem(sand.GetComponent<Interactable>(), true);
+        }
     }
     
-    public void AddItem(Interactable interactable)
+    public void AddItem(Interactable interactable, bool mute = false)
     {
         GameObject obj = new GameObject(interactable.title);
         obj.transform.SetParent(items);
@@ -39,7 +47,9 @@ public class Inventory : Window
         messages.InventoryMessage();
 
         // Play sound
-        audio_source.PlayOneShot(item_sound);
+        if (!mute) {
+            audio_source.PlayOneShot(item_sound);
+        }
     }
 
     override protected void Init() {}
