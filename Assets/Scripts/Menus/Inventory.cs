@@ -36,10 +36,12 @@ public class Inventory : Window
 
         Image image = obj.AddComponent(typeof(Image)) as Image;
         image.sprite = interactable.GetImage();
+        image.preserveAspect = true;
         
         RectTransform rect = obj.GetComponent<RectTransform>();
         rect.sizeDelta = new Vector2(inventory_height, inventory_height);
         rect.localScale = new Vector2(1, 1);
+        rect.localPosition = new Vector2(0, 0);
 
         obj.AddComponent<CanvasGroup>();
 
