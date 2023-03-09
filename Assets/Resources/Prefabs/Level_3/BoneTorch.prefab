@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Knochen Fackel
-  description: 
+  description: Improvised torch made from a bone.
   can_inspect: 0
   can_use: 0
   can_pickup: 0

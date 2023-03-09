@@ -57,7 +57,6 @@ MonoBehaviour:
   sound_open: {fileID: 0}
   sound_close: {fileID: 0}
   button_image: {fileID: 21300000, guid: 35273658a2962f84293736d7aa01bfcc, type: 3}
-  target: {fileID: 0}
 --- !u!222 &1155766560317903979
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -86,7 +85,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 74c94b7da9d81294bb8103cc4d4a3539, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6285b5b08a834c34a9e253a62b275469, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
