@@ -43,57 +43,6 @@ public class Vocabulary : MonoBehaviour
     [SerializeField]
     //public Dictionary<string, Word[]> words = new Dictionary<string, Word[]>();
     public List<Level> levels = new List<Level>();
-    
-    void Awake()
-    {
-        // Level 1
-        levels.Add(new Level("Level_1", new List<Word>() {
-            new Word("Key",         "Schlüssel"),
-            new Word("Gate",        "Tor"),
-            new Word("Sand",        "Sand"),
-            new Word("Stick",       "Stock"),
-            new Word("Cross",       "Kreuz"),
-            new Word("Grave",       "Grab"),
-            new Word("Cementery",   "Friedhof"),
-            new Word("Tower",       "Turm"),
-            new Word("Tree",        "Baum"),
-            new Word("Forest",      "Wald"),
-            new Word("Path",        "Weg"),
-            new Word("Stone",       "Stein"),
-            new Word("Lock",        "Schloss"),
-            new Word("House",       "Haus")
-        }));
-        // Level 2
-        levels.Add(new Level("Level_2", new List<Word>() {
-            new Word("Key",         "Schlüssel"),
-            new Word("Gate",        "Tor"),
-            new Word("Sand",        "Sand"),
-            new Word("Stick",       "Stock"),
-            new Word("Cross",       "Kreuz"),
-            new Word("Grave",       "Grab"),
-            new Word("Cementery",   "Friedhof"),
-            new Word("Tower",       "Turm"),
-            new Word("Tree",        "Baum"),
-            new Word("Forest",      "Wald"),
-            new Word("Path",        "Weg"),
-            new Word("Stone",       "Stein"),
-        }));
-        // Level 3
-        levels.Add(new Level("Level_3", new List<Word>() {
-            new Word("Key",         "Schlüssel"),
-            new Word("Gate",        "Tor"),
-            new Word("Sand",        "Sand"),
-            new Word("Stick",       "Stock"),
-            new Word("Cross",       "Kreuz"),
-            new Word("Grave",       "Grab"),
-            new Word("Cementery",   "Friedhof"),
-            new Word("Tower",       "Turm"),
-            new Word("Tree",        "Baum"),
-            new Word("Forest",      "Wald"),
-            new Word("Path",        "Weg"),
-            new Word("Stone",       "Stein"),
-        }));
-    }
 
     public List<Word> Get(string levelName)
     {
