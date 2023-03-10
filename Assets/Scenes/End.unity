@@ -622,7 +622,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Well done. You have won against the wizard.
+  m_text: 'Together you were able to defeat the wizard. Now life can return to the
+    wasteland!  '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9225057d955ad4b44a9fc64ee1d63000, type: 2}
   m_sharedMaterial: {fileID: -2768614958174092174, guid: 9225057d955ad4b44a9fc64ee1d63000, type: 2}
@@ -649,7 +650,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 52.45
+  m_fontSize: 44.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
