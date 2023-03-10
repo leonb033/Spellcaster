@@ -14,5 +14,11 @@ public class PauseMenu : Window
         Time.timeScale = 1f;
     }
 
+    public void QuitGame()
+    {
+        print("QUIT");
+        Application.Quit();
+    }    
+
     override protected void Init() {}
 }
