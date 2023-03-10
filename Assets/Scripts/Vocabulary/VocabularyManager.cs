@@ -115,6 +115,7 @@ public class VocabularyManager : MonoBehaviour
         correctAnswerCount++;
         PopupCorrectAnswer();
         image.color = Color.green;
+        DisableButtons();
         yield return new WaitForSeconds(1.0f);
         image.color = startColor;
         CheckWinCondition();
@@ -126,6 +127,7 @@ public class VocabularyManager : MonoBehaviour
         wrongAnswerCount++;
         PopupWrongAnswer();
         image.color = Color.red;
+        DisableButtons();
         yield return new WaitForSeconds(1.0f);
         image.color = startColor;
         CheckWinCondition();
