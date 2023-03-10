@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class VocabularyManager : MonoBehaviour
 {
+    Vocabulary vocabulary;
+    Manager manager;
+
+    List<Word> words;
+
     [System.Serializable]
     public struct Quiz
     {
@@ -38,6 +42,12 @@ public class VocabularyManager : MonoBehaviour
 
     void Start()
     {
+        foreach(Word word in vocabulary.Get(manager.GetSceneName())) {
+            words.Insert(Random.Range(0, words.Count), word);
+        }        
+
+        manager = GameObject.Find("/Manager").GetComponent<Manager>();
+        vocabulary = GameObject.Find("/Manager/Vocabulary").GetComponent<Vocabulary>();
         DontDestroyOnLoad(this.gameObject);
         GenerateQuestion();
     }
@@ -78,7 +88,7 @@ public class VocabularyManager : MonoBehaviour
         }
         else if(roundCounter == maxRound)
         {
-            SceneManager.LoadScene("VocabularyResults");
+            manager.LoadScene("VocabularyResults");
         }
     }
 
@@ -91,14 +101,20 @@ public class VocabularyManager : MonoBehaviour
 
     void GenerateAnswers()
     {
+
         for(int i = 0; i < options.Length; i++)
         {
-            options[i].GetComponent<VocabularyAnswers>().isCorrect = false;
-            options[i].transform.GetChild(0).GetComponent<TMP_Text>().text = quiz[currentQuestionIndex].answers[i];
-
-            if(quiz[currentQuestionIndex].correctAnswerIndex == i+1)
+            if(i == 0)
             {
-                options[i].GetComponent<VocabularyAnswers>().isCorrect = true;
+                options[i].transform.GetChild(0).GetComponent<TMP_Text>().text = words[roundCounter].german;
+            }
+            else{
+                int wrongAnswer;
+                do {
+                    wrongAnswer = Random.Range(0, words.Count);
+                }
+                while(wrongAnswer == roundCounter);
+                options[i].transform.GetChild(0).GetComponent<TMP_Text>().text = words[wrongAnswer].german;
             }
         }
     }
@@ -107,8 +123,8 @@ public class VocabularyManager : MonoBehaviour
     {
         roundCounter++;
         UpdateRoundCounter();
-        currentQuestionIndex = Random.Range(0, quiz.Count);
-        questionImage.sprite = quiz[currentQuestionIndex].question;
+        //currentQuestionIndex = Random.Range(0, quiz.Count);
+        questionImage.sprite = words[roundCounter].image;
         GenerateAnswers();
     }
 
