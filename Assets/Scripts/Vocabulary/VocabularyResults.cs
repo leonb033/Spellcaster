@@ -33,7 +33,7 @@ public class VocabularyResults : MonoBehaviour
 
     void CheckResults()
     {
-        if(voc_manager.correctAnswerCount >= 8)
+        if(voc_manager.correctAnswerCount >= Mathf.RoundToInt(voc_manager.words.Count * 0.8f))
         {
             endResultWon.text = "Congratulations! You did it!";
         }
@@ -52,9 +52,9 @@ public class VocabularyResults : MonoBehaviour
 
     public void CheckForNextScene()
     {
-        if(voc_manager.correctAnswerCount >= 8)
+        if(voc_manager.correctAnswerCount >= Mathf.RoundToInt(voc_manager.words.Count * 0.8f))
         {
-            manager.LoadScene("Level_2");
+            manager.LoadNextScene();
         }
         else
         {

@@ -18,6 +18,7 @@ public class StoryManager : MonoBehaviour
         button = GameObject.Find("/Canvas/GUI/Continue").GetComponent<Button>();
 
         // Set text
+        print(manager.GetLevelId());
         text.text = texts[manager.GetLevelId()];
 
         // Set button function

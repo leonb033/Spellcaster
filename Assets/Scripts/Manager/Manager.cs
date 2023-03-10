@@ -8,6 +8,7 @@ public class Manager : MonoBehaviour
     // Manager is available in all scenes
 
     bool intro_done = false;
+    List<string> scene_history = new List<string>();
 
     void Start()
     {
@@ -39,8 +40,19 @@ public class Manager : MonoBehaviour
         return SceneManager.GetActiveScene().name;
     }
 
+    public string GetSceneFromHistory(int i)
+    {
+        if (i >= 0) {
+            return scene_history[i];
+        }
+        else {
+            return scene_history[scene_history.Count + i];
+        }
+    }
+
     public void LoadScene(string scene, bool add = false)
     {
+        scene_history.Add(GetSceneName());
         LoadSceneMode mode = LoadSceneMode.Single;
         if (add) {
             mode = LoadSceneMode.Additive;
@@ -67,8 +79,13 @@ public class Manager : MonoBehaviour
             LoadScene("Vocabulary");
         }
         else if (GetSceneName() == "VocabularyResults") {
-            IncreaseLevelId();
-            LoadScene("Story");
+            if (GetSceneFromHistory(-2).StartsWith("Level_")) {
+                IncreaseLevelId();
+                LoadScene("Story");
+            }
+            else {
+                LoadScene("MainMenu");
+            }
         }
     }
 

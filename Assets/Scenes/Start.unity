@@ -883,9 +883,6 @@ MonoBehaviour:
     - english: Tree
       german: Baum
       image: {fileID: 21300000, guid: 3eefb40ecf8650c4d8b18a6ed27d1afc, type: 3}
-    - english: Path
-      german: Weg
-      image: {fileID: 21300000, guid: 6fef43aedd1ff2d44900e0dc899b16bd, type: 3}
     - english: Stone
       german: Stein
       image: {fileID: 21300000, guid: 0e034bf699161cd418b6181454e928ff, type: 3}
@@ -909,36 +906,6 @@ MonoBehaviour:
     - english: Constellation
       german: Sternenbild
       image: {fileID: 21300000, guid: 99e34af4a18173f409af2deef8ce8b8a, type: 3}
-    - english: Universe
-      german: Weltall
-      image: {fileID: 0}
-    - english: Star
-      german: Stern
-      image: {fileID: 0}
-    - english: Planet
-      german: Planet
-      image: {fileID: 0}
-    - english: Sun
-      german: Sonne
-      image: {fileID: 21300000, guid: 6fef43aedd1ff2d44900e0dc899b16bd, type: 3}
-    - english: Moon
-      german: Mond
-      image: {fileID: 0}
-    - english: Galaxy
-      german: Galaxie
-      image: {fileID: 0}
-    - english: Milky way
-      german: "Milchstra\xDFe"
-      image: {fileID: 0}
-    - english: Chemistry
-      german: Chemie
-      image: {fileID: 0}
-    - english: Book
-      german: Buch
-      image: {fileID: 21300000, guid: 7a240669d1748014bac2df5fb60e8803, type: 3}
-    - english: Laboratory
-      german: Labor
-      image: {fileID: 0}
     - english: Staircase
       german: Treppe
       image: {fileID: 21300000, guid: dfd343da9709c7c479657796e7b0aa88, type: 3}
@@ -951,44 +918,20 @@ MonoBehaviour:
     - english: Note
       german: Zettel
       image: {fileID: 21300000, guid: 28f2540e07da33c4898d4ae288cf5871, type: 3}
+    - english: Bookshelf
+      german: "B\xFCcherregal"
+      image: {fileID: 21300000, guid: 6f093e34fd19b93419ead76f03fa194a, type: 3}
+    - english: Model
+      german: Modell
+      image: {fileID: 21300000, guid: dc919c9dde0335a4b885d6b1f39e72ed, type: 3}
+    - english: Door
+      german: "T\xFCr"
+      image: {fileID: 21300000, guid: ae9d6b359cb6c4b4c8c406dcf94774d2, type: 3}
   - name: Level_3
     words:
-    - english: Basement
-      german: Keller
-      image: {fileID: 0}
-    - english: Hideout
-      german: Versteck
-      image: {fileID: 0}
-    - english: Skeleton
-      german: Skelett
-      image: {fileID: 0}
-    - english: Death
-      german: Tod
-      image: {fileID: 0}
-    - english: Energy
-      german: Energie
-      image: {fileID: 0}
     - english: Magician
       german: Magier
       image: {fileID: 21300000, guid: 929a18cf940efdf4da47ec3cfb2f92bb, type: 3}
-    - english: Flower
-      german: Blume
-      image: {fileID: 21300000, guid: 6fef43aedd1ff2d44900e0dc899b16bd, type: 3}
-    - english: Bush
-      german: Busch
-      image: {fileID: 0}
-    - english: Nature
-      german: Natur
-      image: {fileID: 0}
-    - english: Rabbit
-      german: Hase
-      image: {fileID: 0}
-    - english: Bird
-      german: Vogel
-      image: {fileID: 0}
-    - english: Mouse
-      german: Maus
-      image: {fileID: 0}
     - english: Torch
       german: Fackel
       image: {fileID: 21300000, guid: 282ac825da4127244b103135c830bd0d, type: 3}
@@ -998,9 +941,24 @@ MonoBehaviour:
     - english: Cloth
       german: Tuch
       image: {fileID: 21300000, guid: 22d7b22d58324ef42a82a032179cc791, type: 3}
-    - english: Coffin
-      german: Sarg
-      image: {fileID: 0}
+    - english: Skull
+      german: Totenkopf
+      image: {fileID: 21300000, guid: 561135b2e3ac0d2489961090120698b2, type: 3}
+    - english: Bottle
+      german: Flasche
+      image: {fileID: 21300000, guid: 11c1f1022b866f348a46ba483d0b026a, type: 3}
+    - english: Fire
+      german: Feuer
+      image: {fileID: 21300000, guid: d21fd2b620567c445ae027187d270cb4, type: 3}
+    - english: Runes
+      german: Runen
+      image: {fileID: 21300000, guid: 2eccdd704c453b24ab88de1d34506ad4, type: 3}
+    - english: Table
+      german: Tisch
+      image: {fileID: 21300000, guid: b3d721912b6473243945825372861c46, type: 3}
+    - english: Book
+      german: Buch
+      image: {fileID: 21300000, guid: debd60c463df01046b27ba2c01d80174, type: 3}
 --- !u!1 &1798623992
 GameObject:
   m_ObjectHideFlags: 0

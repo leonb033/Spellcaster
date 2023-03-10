@@ -40,6 +40,7 @@ public class Door : Interactable
     public override void Use()
     {
         if (!open) {
+            open = true;
             GetComponent<Image>().sprite = image_open;
         }
         else {
