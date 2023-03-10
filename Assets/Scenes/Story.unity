@@ -588,12 +588,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   texts:
-  - In the Age of Oblivion, 4610 years after the Second Chaos War, the dwarves of
-    Gamm Moggulir begin to settle the wastelands north of New Mora. But they do not
-    get very far, for the wasteland is barren and holds few visible resources. So
-    far, the uninhabited land has served mainly as a testing ground for dwarven experiments
-    and inventions, but in recent years, expeditions have stumbled upon the remains
-    of a lost and forgotten civilisation.
+  - Gamm Moggulir was once a prosperous continent. But one day, chaos and war overtook
+    the land, and the inhabitants fled to the mountain regions. Driven by childlike
+    curiosity, our hero and his magical companion set off undetected to explore the
+    forbidden wastelands. During their adventures, they make an interesting discovery
+    that could be the cause of Gamm Moggulir's decline.
   - Having discovered that the Wasteland is no longer plagued by the forces of Chaos,
     but by another force, our hero and her trusted fairy companion attempt to discover
     where traces of dark magic affecting the land's vitality are being drawn. They
