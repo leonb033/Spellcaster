@@ -598,7 +598,15 @@ MonoBehaviour:
     but by another force, our hero and her trusted fairy companion attempt to discover
     where traces of dark magic affecting the land's vitality are being drawn. They
     discover a tower that seems to absorb the energy. But the gate seems to be locked.
-  - ...
+  - With the help of a little magic, our hero and his faithful companion managed
+    to gain access to the mysterious tower. In contrast to its ancient facade, the
+    inside of the tower looks inhabited and inviting. But what is this observatory,
+    and where is the landlord? Behind a heavy iron door there seems to be another
+    room.
+  - The protection seals of the door have been successfully overcome. Behind it,
+    a dark and steep staircase leads down into the depths. Our hero's magical companion
+    suddenly senses a strong energy flow and perceives the aura of a powerful being.
+    Does the key to the secret of the wasteland lie in this darkness?
 --- !u!4 &1296558016
 Transform:
   m_ObjectHideFlags: 0
