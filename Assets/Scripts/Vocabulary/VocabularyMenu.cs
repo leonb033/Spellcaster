@@ -22,6 +22,19 @@ public class VocabularyMenu : MonoBehaviour
 
     public void Lection1()
     {
+        manager.voc_id = 1;
+        manager.LoadScene("Vocabulary");
+    }
+
+    public void Lection2()
+    {
+        manager.voc_id = 2;
+        manager.LoadScene("Vocabulary");
+    }
+
+    public void Lection3()
+    {
+        manager.voc_id = 3;
         manager.LoadScene("Vocabulary");
     }
 

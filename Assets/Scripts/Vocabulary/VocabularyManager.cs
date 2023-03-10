@@ -49,7 +49,7 @@ public class VocabularyManager : MonoBehaviour
         // Set button start color
         startColor = Color.white;
         // Create new list of word in random order
-        foreach(Word word in vocabulary.Get("Level_"+manager.GetLevelId())) {
+        foreach(Word word in vocabulary.Get("Level_"+manager.voc_id)) {
             words.Insert(Random.Range(0, words.Count), word);
         }
         maxRound = words.Count;

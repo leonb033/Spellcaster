@@ -7,6 +7,7 @@ public class Manager : MonoBehaviour
 {
     // Manager is available in all scenes
 
+    public int voc_id = 0;
     bool intro_done = false;
     List<string> scene_history = new List<string>();
 
@@ -78,6 +79,7 @@ public class Manager : MonoBehaviour
             LoadScene("Level_"+GetLevelId());
         }
         else if (GetSceneName().StartsWith("Level")) {
+            voc_id = GetLevelId();
             LoadScene("Vocabulary");
         }
         else if (GetSceneName() == "VocabularyResults") {
