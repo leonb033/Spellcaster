@@ -52,6 +52,9 @@ public class VocabularyResults : MonoBehaviour
 
     public void CheckForNextScene()
     {
+        // Delete old vocabulary manager
+        Destroy(voc_manager.gameObject);
+        
         if(voc_manager.correctAnswerCount >= Mathf.RoundToInt(voc_manager.words.Count * 0.8f))
         {
             manager.LoadNextScene();
