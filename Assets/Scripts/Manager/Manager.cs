@@ -52,7 +52,9 @@ public class Manager : MonoBehaviour
 
     public void LoadScene(string scene, bool add = false)
     {
-        scene_history.Add(GetSceneName());
+        if ((GetSceneName() != "Vocabulary") && (GetSceneName() != "VocabularyResults")) {
+            scene_history.Add(GetSceneName());
+        }
         LoadSceneMode mode = LoadSceneMode.Single;
         if (add) {
             mode = LoadSceneMode.Additive;
@@ -79,7 +81,7 @@ public class Manager : MonoBehaviour
             LoadScene("Vocabulary");
         }
         else if (GetSceneName() == "VocabularyResults") {
-            if (GetSceneFromHistory(-2).StartsWith("Level_")) {
+            if (GetSceneFromHistory(-1).StartsWith("Level_")) {
                 IncreaseLevelId();
                 LoadScene("Story");
             }
